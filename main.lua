@@ -22,7 +22,7 @@ local BACKGROUND_LOOPING_POINT = 413
 
 local bird = Bird()
 
-local pipe = {}
+local pipes = {}
 
 local spawnTimer = 0
 
