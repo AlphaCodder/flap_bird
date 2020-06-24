@@ -32,7 +32,7 @@ local scrolling = true
 
 function love.load()
     love.graphics.setDefaultFilter('nearest', 'nearest')
-    
+    math.randomseed(os.time())
     love.window.setTitle('Flap Bird')
 
     smallFont = love.graphics.newFont('fonts/font.ttf', 8)
@@ -45,10 +45,12 @@ function love.load()
         ['jump'] = love.audio.newSource('sounds/jump.wav', 'static'),
         ['explosion'] = love.audio.newSource('sounds/explosion.wav', 'static'),
         ['hurt'] = love.audio.newSource('sounds/hurt.wav', 'static'),
-        ['score'] = love.audio.newSource('sounds/score.wav', 'static')
-    }
+        ['score'] = love.audio.newSource('sounds/score.wav', 'static'),
 
-    math.randomseed(os.time())
+        ['music'] = love.audio.newSource('sounds/marios_way.mp3', 'static')
+    }
+    sounds['music']:setLooping(true)
+    sounds['music']:play()
 
     push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, {
         fullscreen = false,
